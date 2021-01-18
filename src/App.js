@@ -4,6 +4,8 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
   {
@@ -36,10 +38,31 @@ const options = [
 ];
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+const App = () => {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
-      <Translate />
+      <Header />
+      <Route path="/">
+        {/* Whenever we provide children elements inside JSX, they automatically get passed to the parent component as props with name 'children' */}
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select a color"
+          options={options}
+          onSelectedChange={setSelected}
+          selected={selected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
+
+export default App;

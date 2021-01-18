@@ -1,6 +1,0 @@
-wiki api: https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=programming
-
-Projects
-https://blog.nerdjfpb.com/project-ideas-for-react-js-beginners-to-expert/
-
-https://careerkarma.com/blog/axios-get/
